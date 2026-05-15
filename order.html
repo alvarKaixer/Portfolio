@@ -274,10 +274,80 @@
 
     /* FORM */
     .order-form {
-      display: flex;
-      flex-direction: column;
-      gap: 2rem;
-    }
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.step-indicator {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.step-dot {
+  width: 28px; height: 28px;
+  border-radius: 50%;
+  background: var(--bg-3);
+  border: 1.5px solid var(--border-2);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 11px; font-weight: 600; color: var(--text-3);
+  transition: all 0.2s;
+}
+
+.step-dot.active {
+  background: var(--blue);
+  border-color: var(--blue);
+  color: #fff;
+}
+
+.step-dot.done {
+  background: var(--blue-dim);
+  border-color: var(--blue);
+  color: var(--blue);
+}
+
+.step-line {
+  flex: 1; height: 1px;
+  background: var(--border);
+  min-width: 20px;
+}
+
+.step-nav {
+  display: flex;
+  gap: 10px;
+  margin-top: 1.5rem;
+}
+
+.btn-prev, .btn-next {
+  padding: 11px 22px;
+  border-radius: 8px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.15s;
+  border: none;
+}
+
+.btn-prev {
+  background: var(--bg-3);
+  border: 1px solid var(--border-2);
+  color: var(--text-2);
+}
+.btn-prev:hover { color: var(--text); }
+
+.btn-next {
+  background: var(--blue);
+  color: #fff;
+  flex: 1;
+}
+.btn-next:hover { opacity: 0.88; transform: translateY(-1px); }
+
+.form-section { display: none; }
+.form-section.active { display: block; }
 
     .form-section {
       background: var(--bg-2);
@@ -606,6 +676,8 @@
 
     /* RESPONSIVE */
     @media (max-width: 720px) {
+        .two-col { grid-template-columns: 1fr; }
+      .summary-box { position: static; margin-top: 2rem; }
       nav { padding: 0 1.25rem; }
       .page { padding: 90px 1.25rem 4rem; }
       .pricing-grid { grid-template-columns: 1fr; }
@@ -722,9 +794,22 @@
       <!-- FORM -->
       <div class="order-form" id="orderForm">
 
+        <!-- STEP INDICATOR -->
+        <div class="step-indicator">
+          <div class="step-dot active" id="dot1">1</div>
+          <div class="step-line"></div>
+          <div class="step-dot" id="dot2">2</div>
+          <div class="step-line"></div>
+          <div class="step-dot" id="dot3">3</div>
+          <div class="step-line"></div>
+          <div class="step-dot" id="dot4">4</div>
+          <div class="step-line"></div>
+          <div class="step-dot" id="dot5">5</div>
+          
+        </div>
+
         <!-- CONTACT INFO -->
-        <div class="form-section">
-          <div class="form-section-title">Your Details</div>
+        <div class="form-section active" data-step="1">
           <div class="form-section-sub">How do I reach you?</div>
           <div class="form-row">
             <div class="form-group">
@@ -754,8 +839,7 @@
         </div>
 
         <!-- PROJECT DETAILS -->
-        <div class="form-section">
-          <div class="form-section-title">Project Details</div>
+        <div class="form-section" data-step="2">
           <div class="form-section-sub">Tell me about what you need.</div>
           <div class="form-row">
             <div class="form-group">
@@ -793,36 +877,35 @@
         </div>
 
         <!-- SERVICES NEEDED -->
-        <div class="form-section">
-          <div class="form-section-title">Services Needed</div>
+        <div class="form-section" data-step="3">
           <div class="form-section-sub">Check all that apply.</div>
           <div class="checkbox-group" id="servicesGroup">
-            <label class="checkbox-item" onclick="toggleCheck(this)">
+            <label class="checkbox-item" onclick="toggleCheck(this); return false;">
               <input type="checkbox" value="Video Editing" />
               <div class="cb-box"><svg class="cb-box-check" width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
               <span class="cb-label">✂️ Video Editing</span>
             </label>
-            <label class="checkbox-item" onclick="toggleCheck(this)">
+            <label class="checkbox-item" onclick="toggleCheck(this); return false;">
               <input type="checkbox" value="Color Grading" />
               <div class="cb-box"><svg class="cb-box-check" width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
               <span class="cb-label">🎨 Color Grading</span>
             </label>
-            <label class="checkbox-item" onclick="toggleCheck(this)">
+            <label class="checkbox-item" onclick="toggleCheck(this); return false;">
               <input type="checkbox" value="Sound Design" />
               <div class="cb-box"><svg class="cb-box-check" width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
               <span class="cb-label">🔊 Sound Design</span>
             </label>
-            <label class="checkbox-item" onclick="toggleCheck(this)">
+            <label class="checkbox-item" onclick="toggleCheck(this); return false;">
               <input type="checkbox" value="Motion Graphics" />
               <div class="cb-box"><svg class="cb-box-check" width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
               <span class="cb-label">✨ Motion Graphics</span>
             </label>
-            <label class="checkbox-item" onclick="toggleCheck(this)">
+            <label class="checkbox-item" onclick="toggleCheck(this); return false;">
               <input type="checkbox" value="Captions / Subtitles" />
               <div class="cb-box"><svg class="cb-box-check" width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
               <span class="cb-label">💬 Captions / Subtitles</span>
             </label>
-            <label class="checkbox-item" onclick="toggleCheck(this)">
+            <label class="checkbox-item" onclick="toggleCheck(this); return false;">
               <input type="checkbox" value="Thumbnail Design" />
               <div class="cb-box"><svg class="cb-box-check" width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
               <span class="cb-label">🖼️ Thumbnail Design</span>
@@ -831,8 +914,7 @@
         </div>
 
         <!-- ASSETS -->
-        <div class="form-section">
-          <div class="form-section-title">Your Assets</div>
+        <div class="form-section" data-step="4">
           <div class="form-section-sub">Share your footage and reference links.</div>
           <div class="form-row">
             <div class="form-group full">
@@ -854,8 +936,7 @@
         </div>
 
         <!-- DEADLINE -->
-        <div class="form-section">
-          <div class="form-section-title">Deadline</div>
+        <div class="form-section" data-step="5">
           <div class="form-section-sub">When do you need it by?</div>
           <div class="deadline-options" id="deadlineOptions">
             <button type="button" class="deadline-btn" onclick="selectDeadline(this, 'No rush (flexible)')">No rush</button>
@@ -870,15 +951,28 @@
           <div class="note-box" style="margin-top: 10px;">
             <strong>Rush orders</strong> (under 3 days) may incur an additional 30–50% fee depending on scope.
           </div>
+
+          <div style="margin-top: 1.5rem;">
+            <div class="form-section-title">Anything Else?</div>
+            <div class="form-section-sub">Extra context, specific instructions, or questions.</div>
+            <div class="form-group">
+              <textarea id="additionalNotes" style="min-height:90px;" placeholder="Specific cuts you want kept, a vibe you're going for, aspect ratio needed (16:9, 9:16, 1:1), delivery format, etc."></textarea>
+            </div>
+          </div>
         </div>
 
         <!-- ADDITIONAL NOTES -->
-        <div class="form-section">
+        
+          <div class="form-section" data-step="5">
           <div class="form-section-title">Anything Else?</div>
           <div class="form-section-sub">Extra context, specific instructions, or questions.</div>
           <div class="form-group">
             <textarea id="additionalNotes" style="min-height:90px;" placeholder="Specific cuts you want kept, a vibe you're going for, aspect ratio needed (16:9, 9:16, 1:1), delivery format, etc."></textarea>
           </div>
+        </div>
+        <div class="step-nav">
+          <button type="button" class="btn-prev" id="btnPrev" onclick="changeStep(-1)" style="display:none;">← Back</button>
+          <button type="button" class="btn-next" id="btnNext" onclick="changeStep(1)">Next →</button>
         </div>
 
       </div>
@@ -965,7 +1059,10 @@
 
   // ─── Checkbox Toggle ───────────────────────────────────────────────────────
   function toggleCheck(label) {
+    event.preventDefault();
     label.classList.toggle('checked');
+    const cb = label.querySelector('input[type="checkbox"]');
+    if (cb) cb.checked = !cb.checked;
     updateSummary();
   }
 
@@ -1053,6 +1150,40 @@
         btn.innerHTML = '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg> Place Order';
         alert('Something went wrong sending your order. Please try again or email me directly at kaixermalvar@gmail.com');
       });
+  }
+
+  // ─── Multi-step ────────────────────────────────────────────────────────────
+  let currentStep = 1;
+  const totalSteps = 5;
+
+  function changeStep(dir) {
+    const sections = document.querySelectorAll('.form-section[data-step]');
+    sections.forEach(s => s.classList.remove('active'));
+
+    currentStep = Math.max(1, Math.min(totalSteps, currentStep + dir));
+
+    document.querySelector(`.form-section[data-step="${currentStep}"]`).classList.add('active');
+
+    // Update dots
+    for (let i = 1; i <= totalSteps; i++) {
+      const dot = document.getElementById('dot' + i);
+      dot.classList.remove('active', 'done');
+      if (i < currentStep) dot.classList.add('done');
+      if (i === currentStep) dot.classList.add('active');
+    }
+
+    // Prev/next buttons
+    document.getElementById('btnPrev').style.display = currentStep === 1 ? 'none' : '';
+    const nextBtn = document.getElementById('btnNext');
+    if (currentStep === totalSteps) {
+      nextBtn.textContent = 'Place Order ✈';
+      nextBtn.onclick = submitOrder;
+    } else {
+      nextBtn.textContent = 'Next →';
+      nextBtn.onclick = () => changeStep(1);
+    }
+
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 </script>
 
