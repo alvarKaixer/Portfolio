@@ -720,7 +720,7 @@
 
     <!-- HEADER -->
     <div class="page-header">
-      <div class="page-eyebrow">✂️ &nbsp; Place an Order</div>
+      <div class="page-eyebrow"> &nbsp; Place an Order</div>
       <h1 class="page-title">Let's make something<br><em>worth watching.</em></h1>
       <p class="page-sub">Fill out the form below and I'll get back to you within 24–48 hours to confirm the project.</p>
     </div>
@@ -858,7 +858,7 @@
               </select>
             </div>
             <div class="form-group">
-              <label>Approx. Raw Footage Length</label>
+              <label>Approx.  Footage Length</label>
               <select id="footageLength">
                 <option value="">— Select —</option>
                 <option>Under 10 minutes</option>
@@ -883,32 +883,32 @@
             <label class="checkbox-item" onclick="toggleCheck(this); return false;">
               <input type="checkbox" value="Video Editing" />
               <div class="cb-box"><svg class="cb-box-check" width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
-              <span class="cb-label">✂️ Video Editing</span>
+              <span class="cb-label"> Video Editing</span>
             </label>
             <label class="checkbox-item" onclick="toggleCheck(this); return false;">
               <input type="checkbox" value="Color Grading" />
               <div class="cb-box"><svg class="cb-box-check" width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
-              <span class="cb-label">🎨 Color Grading</span>
+              <span class="cb-label"> Color Grading</span>
             </label>
             <label class="checkbox-item" onclick="toggleCheck(this); return false;">
               <input type="checkbox" value="Sound Design" />
               <div class="cb-box"><svg class="cb-box-check" width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
-              <span class="cb-label">🔊 Sound Design</span>
+              <span class="cb-label"> Sound Design</span>
             </label>
             <label class="checkbox-item" onclick="toggleCheck(this); return false;">
               <input type="checkbox" value="Motion Graphics" />
               <div class="cb-box"><svg class="cb-box-check" width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
-              <span class="cb-label">✨ Motion Graphics</span>
+              <span class="cb-label"> Motion Graphics</span>
             </label>
             <label class="checkbox-item" onclick="toggleCheck(this); return false;">
               <input type="checkbox" value="Captions / Subtitles" />
               <div class="cb-box"><svg class="cb-box-check" width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
-              <span class="cb-label">💬 Captions / Subtitles</span>
+              <span class="cb-label"> Captions / Subtitles</span>
             </label>
             <label class="checkbox-item" onclick="toggleCheck(this); return false;">
-              <input type="checkbox" value="Thumbnail Design" />
+              <input type="checkbox" value="3D Animation" />
               <div class="cb-box"><svg class="cb-box-check" width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
-              <span class="cb-label">🖼️ Thumbnail Design</span>
+              <span class="cb-label"> 3D Animation</span>
             </label>
           </div>
         </div>
@@ -942,7 +942,7 @@
             <button type="button" class="deadline-btn" onclick="selectDeadline(this, 'No rush (flexible)')">No rush</button>
             <button type="button" class="deadline-btn" onclick="selectDeadline(this, '1–2 weeks')">1–2 weeks</button>
             <button type="button" class="deadline-btn" onclick="selectDeadline(this, 'Within a week')">Within a week</button>
-            <button type="button" class="deadline-btn" onclick="selectDeadline(this, 'ASAP / Rush')">ASAP / Rush ⚡</button>
+            <button type="button" class="deadline-btn" onclick="selectDeadline(this, 'ASAP / Rush')">ASAP / Rush </button>
           </div>
           <div class="form-group" style="margin-top: 12px;">
             <label>Or specify a date</label>
@@ -1143,7 +1143,7 @@
       .then(function() {
         document.getElementById('mainContent').style.display = 'none';
         document.getElementById('successScreen').style.display = 'block';
-        window.scrollTo({ top: 0, behavior: 'smooth' });
+        
       }, function(error) {
         console.error('EmailJS error:', error);
         btn.disabled = false;
@@ -1183,7 +1183,7 @@
       nextBtn.onclick = () => changeStep(1);
     }
 
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    
   }
 </script>
 

@@ -132,13 +132,31 @@
     }
 
     .hero-glow {
-      position: absolute;
-      top: -100px; left: 50%;
-      transform: translateX(-50%);
-      width: 700px; height: 500px;
-      background: radial-gradient(ellipse, rgba(59,107,255,0.08) 0%, transparent 70%);
-      pointer-events: none;
-    }
+  position: absolute;
+  top: -100px; left: 50%;
+  transform: translateX(-50%);
+  width: 700px; height: 500px;
+  background: radial-gradient(ellipse, rgba(59,107,255,0.08) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.glow-left {
+  position: fixed;
+  bottom: 20%; left: -200px;
+  width: 500px; height: 500px;
+  background: radial-gradient(ellipse, rgba(59,107,255,0.06) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.glow-right {
+  position: fixed;
+  top: 30%; right: -200px;
+  width: 500px; height: 500px;
+  background: radial-gradient(ellipse, rgba(59,107,255,0.06) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
 
     .hero-inner {
       position: relative;
@@ -650,6 +668,8 @@
   </style>
 </head>
 <body>
+  <div class="glow-left"></div>
+<div class="glow-right"></div>
 
 <!-- NAV -->
 <nav>
@@ -675,14 +695,14 @@
 
     <h1 class="hero-title">
       Every frame<br>
-      <span class="gold">tells</span>
-      <span class="dim"> a story.</span>
+      <span class="dim">tells</span>
+      <span class="gold"> a story.</span>
     </h1>
 
     <div class="hero-rule"></div>
 
     <p class="hero-sub">
-      Crafting narratives through motion, rhythm, and visual storytelling. 10 years of passion — 5 years of professional work — across commercial, cinematic, and content-driven projects.
+      Crafting narratives through motion, rhythm, and visual storytelling. 10 years of passion 5 years of professional work, across multi-media projects.
     </p>
 
     <div class="hero-stats">
@@ -841,32 +861,32 @@
 
   <div class="services-grid">
     <div class="service-card">
-      <div class="service-icon">✂️</div>
+      <div class="service-icon"></div>
       <div class="service-name">Video Editing</div>
-      <div class="service-desc">Narrative-driven cuts that serve the story — from rough assembly to picture lock with meticulous attention to rhythm and pacing.</div>
+      <div class="service-desc">Narrative-driven cuts that serve the story, from rough assembly to picture lock with meticulous attention to rhythm and pacing.</div>
     </div>
     <div class="service-card">
-      <div class="service-icon">🎨</div>
+      <div class="service-icon"></div>
       <div class="service-name">Color Grading</div>
       <div class="service-desc">Building a consistent visual language with intentional color work that elevates mood and draws viewers deeper into the story.</div>
     </div>
     <div class="service-card">
-      <div class="service-icon">🔊</div>
+      <div class="service-icon"></div>
       <div class="service-name">Sound Design</div>
       <div class="service-desc">Audio mixing, SFX layering, and music sync to create immersive soundscapes that support the edit's emotional arc.</div>
     </div>
     <div class="service-card">
-      <div class="service-icon">✨</div>
+      <div class="service-icon"></div>
       <div class="service-name">Motion Graphics</div>
-      <div class="service-desc">Clean, purposeful motion — from lower thirds to full title sequences — designed to complement, not overshadow.</div>
+      <div class="service-desc">Clean, purposeful motion, from lower thirds to full title sequences, designed to complement, not overshadow.</div>
     </div>
     <div class="service-card">
-      <div class="service-icon">📱</div>
+      <div class="service-icon"></div>
       <div class="service-name">Social Content</div>
       <div class="service-desc">Fast-turnaround short-form content optimized for Reels, TikTok, and YouTube Shorts. Hook-first editing that retains attention.</div>
     </div>
     <div class="service-card">
-      <div class="service-icon">🎬</div>
+      <div class="service-icon"></div>
       <div class="service-name">Post-Production</div>
       <div class="service-desc">Full post-production pipeline from raw footage to export-ready deliverables across multiple formats and platforms.</div>
     </div>
@@ -882,13 +902,10 @@
 
   <div class="tools-row">
     <div class="tool-chip"><div class="tool-dot"></div> Adobe Premiere Pro</div>
-    <div class="tool-chip"><div class="tool-dot"></div> DaVinci Resolve</div>
+    <div class="tool-chip"><div class="tool-dot"></div> Adobe Photoshop</div>
     <div class="tool-chip"><div class="tool-dot"></div> After Effects</div>
     <div class="tool-chip"><div class="tool-dot"></div> Adobe Audition</div>
-    <div class="tool-chip"><div class="tool-dot"></div> Lightroom</div>
-    <div class="tool-chip"><div class="tool-dot"></div> Final Cut Pro</div>
-    <div class="tool-chip"><div class="tool-dot"></div> CapCut</div>
-    <div class="tool-chip"><div class="tool-dot"></div> Frame.io</div>
+    <div class="tool-chip"><div class="tool-dot"></div> Adobe Lightroom</div>
   </div>
 </section>
 
@@ -900,13 +917,13 @@
   </div>
 
   <blockquote class="quote-block" style="margin-bottom: 2.5rem;">
-    <p class="quote-text">"Editing is not just cutting footage. It's finding the heartbeat of a story and letting it breathe."</p>
+    <p class="quote-text">"When given an opportunity, deliver excellence and never quit.
+― Robert Rodriguez"</p>
   </blockquote>
 
   <div style="background: var(--bg-2); border: 1px solid var(--border); border-radius: 16px; padding: 2rem 2.25rem;">
     <p style="font-size: 15px; line-height: 1.85; color: var(--text-2); font-weight: 300; max-width: 640px;">
-      I've been cutting video since I was <strong style="color: var(--text); font-weight: 500;">14 years old</strong> — long before I knew what a timeline was called. What started as experimenting with raw footage became a decade-long pursuit of craft.
-      Over the last <strong style="color: var(--text); font-weight: 500;">5 years professionally</strong>, I've worked across genres — commercial, cinematic, documentary, and social content — learning that great editing is mostly invisible: it's the pacing you feel but never notice, the cut that lands exactly when the music does.
+      I've been editing since I was around <strong style="color: var(--text); font-weight: 500;">10 years old</strong>, just messing around with random gameplay footage and uploading videos on YouTube. It was more of a hobby back then, just trying things out and having fun. During the pandemic, I came across AMVs (anime music videos), and that's when I really got into editing seriously. I started learning more about motion graphics, 3D animation, and eventually got comfortable with the software I still use today. After that, I began taking on commissions, from classmates at first, then eventually international clients. I kept doing it consistently over the years, improving with every project. Now, I'm at a point where I'm doing way more than I ever thought I could when I first started.
     </p>
     <div style="display:flex; gap: 2.5rem; margin-top: 1.75rem; flex-wrap: wrap;">
       <div>
@@ -915,7 +932,7 @@
       </div>
       <div>
         <div style="font-size:11px; text-transform:uppercase; letter-spacing:0.06em; color:var(--text-3); margin-bottom:3px;">Genres</div>
-        <div style="font-size:14px; font-weight:500; color:var(--text);">Commercial · Cinematic · Social</div>
+        <div style="font-size:14px; font-weight:500; color:var(--text);">Cinematic · Commercial · 3D Animation</div>
       </div>
       <div>
         <div style="font-size:11px; text-transform:uppercase; letter-spacing:0.06em; color:var(--text-3); margin-bottom:3px;">Based</div>
@@ -931,15 +948,15 @@
     <div class="section-label">Work Together</div>
     <div class="section-num">06</div>
   </div>
-<a href="order.html" class="btn-gold">Place an Order</a>
+
   <div style="background: var(--bg-2); border: 1px solid var(--border); border-radius: 16px; padding: 2.5rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1.5rem; position: relative; overflow: hidden;">
     <div style="position:absolute; top:-60px; right:-60px; width:250px; height:250px; background: radial-gradient(circle, rgba(59,107,255,0.05), transparent 70%); pointer-events:none;"></div>
     <div>
-      <div style="font-family:'DM Serif Display',serif; font-size: 1.75rem; color:var(--text); font-weight:400; letter-spacing:-0.02em; margin-bottom:6px;">Let's make something worth watching.</div>
+      <div style="font-family:'DM Serif Display',serif; font-size: 1.75rem; color:var(--text); font-weight:400; letter-spacing:-0.02em; margin-bottom:6px;">Let's elevate your brand.</div>
       <p style="font-size:14px; color:var(--text-2); font-weight:300;">Available for freelance projects, collaborations, and creative work.</p>
     </div>
     <div style="display:flex; gap:10px; flex-shrink:0;">
-      <a href="mailto:your@email.com" class="btn-gold">Get in touch ↗</a>
+      <a href="order.html" class="btn-gold">Place an Order</a>
       <a href="index.html" class="btn-ghost">← Dev side</a>
     </div>
   </div>
@@ -947,7 +964,7 @@
 
 <!-- FOOTER -->
 <footer>
-  <span class="footer-l">Kaixer Alvar © 2025 — Video Portfolio</span>
+  <span class="footer-l">Kaixer Alvar © 2025 — Video Editing Portfolio</span>
   <div class="footer-r">
     <a href="index.html">Developer</a>
     <a href="https://github.com/alvarKaixer" target="_blank" rel="noopener">GitHub</a>
