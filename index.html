@@ -1,1122 +1,211 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark" data-side="dev">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Kaixer Alvar — CS Student & Developer</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet" />
-  <style>
-    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-
-    :root {
-      --bg: #0a0a0a;
-      --bg-2: #111111;
-      --bg-3: #1a1a1a;
-      --bg-4: #222222;
-      --border: rgba(255,255,255,0.07);
-      --border-2: rgba(255,255,255,0.12);
-      --text: #f0f0f0;
-      --text-2: #888;
-      --text-3: #555;
-      --blue: #3b6bff;
-      --blue-dim: rgba(59,107,255,0.12);
-    }
-
-    html { scroll-behavior: smooth; }
-
-    body {
-      font-family: 'DM Sans', sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      min-height: 100vh;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    /* NAV */
-    nav {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      z-index: 100;
-      height: 60px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0 2rem;
-      background: rgba(10,10,10,0.8);
-      backdrop-filter: blur(20px);
-      border-bottom: 1px solid var(--border);
-    }
-
-    .nav-logo {
-      font-size: 15px;
-      font-weight: 600;
-      color: var(--text);
-      letter-spacing: -0.02em;
-    }
-
-    .nav-logo span { color: var(--blue); }
-
-    .nav-right { display: flex; align-items: center; gap: 2rem; }
-
-    .nav-links { display: flex; gap: 1.75rem; }
-
-    .nav-links a {
-      font-size: 13px;
-      font-weight: 400;
-      color: var(--text-2);
-      text-decoration: none;
-      transition: color 0.15s;
-    }
-
-    .nav-links a:hover { color: var(--text); }
-
-    /* HERO — tighter, no full viewport height */
-    .hero {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 100px 2rem 2.5rem;
-      position: relative;
-      text-align: center;
-    }
-
-    .hero-content {
-      position: relative;
-      z-index: 1;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 0;
-      width: 100%;
-      max-width: 640px;
-    }
-
-    /* Social icons row */
-    .hero-socials {
-      display: flex;
-      align-items: center;
-      gap: 1.25rem;
-      margin-bottom: 1.75rem;
-    }
-
-    .hero-social-link {
-      color: var(--text);
-      text-decoration: none;
-      transition: color 0.15s;
-      display: flex;
-      align-items: center;
-    }
-
-    .hero-social-link:hover { color: var(--text); }
-
-    /* Photo */
-    .hero-photo-frame {
-      width: 88px;
-      height: 88px;
-      border-radius: 50%;
-      overflow: hidden;
-      border: 1px solid var(--border-2);
-      background: var(--bg-3);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 1.5rem;
-    }
-
-    .hero-photo-frame img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    /* Name */
-    h1 {
-      font-family: 'DM Serif Display', serif;
-      font-size: clamp(2.2rem, 6vw, 3.25rem);
-      font-weight: 400;
-      line-height: 1.1;
-      letter-spacing: -0.01em;
-      color: var(--text);
-      margin-bottom: 0.5rem;
-    }
-
-    /* Role — monospace like reference */
-    .hero-role {
-      font-family: 'Courier New', 'Courier', monospace;
-      font-size: 13px;
-      color: var(--text-3);
-      letter-spacing: 0.04em;
-      margin-bottom: 1.5rem;
-    }
-
-    /* Divider */
-    .hero-divider {
-      width: 100%;
-      max-width: 320px;
-      height: 1px;
-      background: var(--border);
-      margin-bottom: 1.5rem;
-    }
-
-    /* Tagline */
-    .hero-sub {
-      font-size: 14px;
-      line-height: 1.7;
-      color: var(--text-2);
-      font-weight: 300;
-      max-width: 420px;
-      margin-bottom: 2rem;
-    }
-
-    /* Tech stack icon pills */
-    .hero-stack {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      flex-wrap: wrap;
-      justify-content: center;
-      margin-bottom: 2rem;
-    }
-
-    .hero-stack-pill {
-      display: flex;
-      align-items: center;
-      gap: 5px;
-      background: var(--bg-2);
-      border: 1px solid var(--border);
-      border-radius: 100px;
-      padding: 5px 10px;
-      font-size: 11px;
-      font-weight: 500;
-      color: var(--text-3);
-      transition: border-color 0.15s, color 0.15s;
-    }
-
-    .hero-stack-pill:hover {
-      border-color: var(--border-2);
-      color: var(--text-2);
-    }
-
-    /* CTA buttons */
-    .hero-actions {
-      display: flex;
-      gap: 10px;
-      align-items: center;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-
-    .btn-primary {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      background: var(--blue);
-      color: #fff;
-      font-family: 'DM Sans', sans-serif;
-      font-size: 13px;
-      font-weight: 600;
-      padding: 10px 22px;
-      border-radius: 8px;
-      text-decoration: none;
-      border: none;
-      cursor: pointer;
-      transition: opacity 0.15s, transform 0.15s;
-      letter-spacing: -0.01em;
-    }
-
-    .btn-primary:hover { opacity: 0.88; transform: translateY(-1px); }
-
-    .btn-secondary {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      background: transparent;
-      color: var(--text);
-      font-family: 'DM Sans', sans-serif;
-      font-size: 13px;
-      font-weight: 600;
-      padding: 10px 22px;
-      border-radius: 8px;
-      border: 1px solid var(--border-2);
-      text-decoration: none;
-      transition: background 0.15s, transform 0.15s;
-      letter-spacing: -0.01em;
-    }
-
-    .btn-secondary:hover { background: var(--bg-3); transform: translateY(-1px); }
-
-    /* =============================================
-       PROJECTS
-       ============================================= */
-    #work {
-      padding: 2.5rem 2rem 4rem;
-      max-width: 680px;
-      margin: 0 auto;
-      border-top: 1px solid var(--border);
-      position: relative;
-    }
-
-
-    .work-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: 2rem;
-    }
-
-    .projects { display: flex; flex-direction: column; gap: 10px; }
-
-    .project-card {
-      display: flex;
-      align-items: center;
-      gap: 1.5rem;
-      background: var(--bg-2);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 1.5rem 1.75rem;
-      text-decoration: none;
-      color: inherit;
-      transition: border-color 0.2s, background 0.2s, transform 0.2s;
-      position: relative;
-    }
-
-    .project-card::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: var(--blue-dim);
-      opacity: 0;
-      transition: opacity 0.2s;
-    }
-
-    .project-card:hover { border-color: rgba(59,107,255,0.35); transform: translateY(-2px);}
-    .project-card:hover::before { opacity: 1; }
-    
-
-    .project-card-inner {
-      display: flex;
-      align-items: center;
-      gap: 1.5rem;
-      width: 100%;
-      position: relative;
-      z-index: 1;
-    }
-
-    .project-icon {
-      width: 44px;
-      height: 44px;
-      border-radius: 10px;
-      background: var(--blue-dim);
-      border: 1px solid rgba(59,107,255,0.2);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-      font-size: 20px;
-    }
-
-    .project-body { flex: 1; }
-
-    .project-name {
-      font-size: 15px;
-      font-weight: 600;
-      color: var(--text);
-      letter-spacing: -0.02em;
-      margin-bottom: 4px;
-    }
-
-    .project-desc {
-      font-size: 13px;
-      color: var(--text-2);
-      line-height: 1.55;
-      font-weight: 300;
-    }
-
-    .project-tags {
-      display: flex;
-      gap: 6px;
-      flex-wrap: wrap;
-      margin-top: 8px;
-    }
-
-    .tag {
-      font-size: 11px;
-      font-weight: 500;
-      color: var(--text-3);
-      background: var(--bg-4);
-      border: 1px solid var(--border);
-      padding: 3px 8px;
-      border-radius: 5px;
-    }
-
-    .project-arrow {
-      color: var(--text-3);
-      font-size: 18px;
-      transition: color 0.2s, transform 0.2s;
-      flex-shrink: 0;
-      position: relative;
-      z-index: 1;
-    }
-
-    .project-card:hover .project-arrow {
-      color: var(--blue);
-      transform: translate(2px, -2px);
-    }
-
-    .section-title {
-      font-size: 13px;
-      font-weight: 500;
-      color: var(--text-3);
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-    }
-
-    .section-link {
-      font-size: 13px;
-      color: var(--blue);
-      text-decoration: none;
-      font-weight: 500;
-    }
-
-    .section-link:hover { text-decoration: underline; }
-
-    /* Ambient page glow — top center, always on */
-    body::before {
-      content: '';
-      position: fixed;
-      top: -200px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 800px;
-      height: 600px;
-      background: radial-gradient(ellipse at center, rgba(59,107,255,0.13) 0%, transparent 70%);
-      pointer-events: none;
-      z-index: 0;
-    }
-    .section {
-      padding: 4rem 2rem;
-      max-width: 680px;
-      margin: 0 auto;
-      border-top: 1px solid var(--border);
-    }
-
-    .section-top {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: 2rem;
-    }
-
-    /* SKILLS — pill grid, no cards */
-    .skills-grid {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-    }
-
-    .skill-card {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      background: var(--bg-2);
-      border: 1px solid var(--border);
-      border-radius: 100px;
-      padding: 6px 14px;
-      transition: border-color 0.2s, background 0.2s;
-    }
-
-    .skill-card:hover {
-      border-color: var(--border-2);
-      background: var(--bg-3);
-    }
-
-    .skill-name {
-      font-size: 13px;
-      font-weight: 500;
-      color: var(--text-2);
-    }
-
-    .skill-badge {
-      font-size: 10px;
-      font-weight: 600;
-      padding: 2px 7px;
-      border-radius: 100px;
-      letter-spacing: 0.02em;
-    }
-
-    .badge-learning  { background: rgba(251,191,36,0.12);  color: #fbbf24; }
-    .badge-familiar  { background: rgba(74,222,128,0.12);  color: #4ade80; }
-    .badge-progress  { background: rgba(59,107,255,0.15);  color: #6b8fff; }
-    .badge-exploring { background: rgba(192,132,252,0.12); color: #c084fc; }
-
-    /* ABOUT */
-    .about-box {
-      background: none;
-      border: none;
-      border-radius: 0;
-      padding: 0;
-    }
-
-    .about-text {
-      font-size: 15px;
-      line-height: 1.8;
-      color: var(--text-2);
-      font-weight: 300;
-      margin-bottom: 2rem;
-    }
-
-    .about-text strong { color: var(--text); font-weight: 500; }
-
-    .about-meta {
-      display: flex;
-      gap: 0;
-      flex-wrap: wrap;
-      border-top: 1px solid var(--border);
-      padding-top: 1.5rem;
-    }
-
-    .meta-item {
-      flex: 1;
-      min-width: 120px;
-      padding: 0 1.5rem 0 0;
-    }
-
-    .meta-item:first-child { padding-left: 0; }
-
-    .meta-label {
-      font-family: 'Courier New', monospace;
-      font-size: 10px;
-      font-weight: 400;
-      color: var(--text-3);
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      margin-bottom: 4px;
-    }
-
-    .meta-val {
-      font-size: 13px;
-      font-weight: 500;
-      color: var(--text);
-    }
-
-    /* CONTACT */
-    .contact-grid {
-      display: flex;
-      flex-direction: column;
-      gap: 0;
-    }
-
-    .contact-card {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      padding: 1rem 0;
-      text-decoration: none;
-      color: inherit;
-      border-bottom: 1px solid var(--border);
-      transition: color 0.15s;
-    }
-
-    .contact-card:first-child { border-top: 1px solid var(--border); }
-
-    .contact-card:hover .contact-name { color: var(--blue); }
-    .contact-card:hover .contact-arrow { color: var(--blue); transform: translate(2px, -2px); }
-
-    .contact-icon-wrap {
-      width: 32px;
-      height: 32px;
-      border-radius: 8px;
-      background: var(--bg-2);
-      border: 1px solid var(--border);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-    }
-
-    .contact-name {
-      font-size: 14px;
-      font-weight: 500;
-      color: var(--text);
-      transition: color 0.15s;
-      flex: 1;
-    }
-
-    .contact-sub {
-      font-size: 12px;
-      color: var(--text-3);
-    }
-
-    .contact-arrow {
-      font-size: 14px;
-      color: var(--text-3);
-      transition: color 0.15s, transform 0.15s;
-    }
-
-    /* CREATIVE */
-    .creative-banner {
-      position: relative;
-      border-radius: 20px;
-      overflow: hidden;
-      background: #0d0d0d;
-      border: 1px solid rgba(59,107,255,0.15);
-      padding: 3rem 2.5rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 2rem;
-      cursor: pointer;
-      text-decoration: none;
-      color: inherit;
-      transition: border-color 0.25s;
-    }
-
-    .creative-banner:hover { border-color: rgba(59,107,255,0.4); }
-
-    .creative-banner-glow {
-      position: absolute;
-      top: -80px; right: -80px;
-      width: 400px; height: 400px;
-      background: radial-gradient(circle, rgba(59,107,255,0.07) 0%, transparent 65%);
-      pointer-events: none;
-    }
-
-    .creative-banner-lines {
-      position: absolute;
-      inset: 0;
-      pointer-events: none;
-      opacity: 0.03;
-      background-image: repeating-linear-gradient(
-        0deg, transparent, transparent 3px,
-        rgba(255,255,255,1) 3px, rgba(255,255,255,1) 4px
-      );
-    }
-
-    .creative-corner { position: absolute; width: 18px; height: 18px; }
-    .creative-corner.tl { top: 16px; left: 16px; border-top: 1px solid rgba(59,107,255,0.4); border-left: 1px solid rgba(59,107,255,0.4); }
-    .creative-corner.tr { top: 16px; right: 16px; border-top: 1px solid rgba(59,107,255,0.4); border-right: 1px solid rgba(59,107,255,0.4); }
-    .creative-corner.bl { bottom: 16px; left: 16px; border-bottom: 1px solid rgba(59,107,255,0.4); border-left: 1px solid rgba(59,107,255,0.4); }
-    .creative-corner.br { bottom: 16px; right: 16px; border-bottom: 1px solid rgba(59,107,255,0.4); border-right: 1px solid rgba(59,107,255,0.4); }
-
-    .creative-left { position: relative; z-index: 1; }
-
-    .creative-tag {
-      display: inline-flex;
-      align-items: center;
-      gap: 7px;
-      background: var(--blue-dim);
-      border: 1px solid rgba(59,107,255,0.2);
-      border-radius: 100px;
-      padding: 4px 12px 4px 10px;
-      font-size: 11px;
-      font-weight: 600;
-      color: var(--blue);
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      margin-bottom: 1.25rem;
-    }
-
-    .creative-tag-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--blue); }
-
-    .creative-title {
-      font-family: 'DM Serif Display', serif;
-      font-size: clamp(1.75rem, 4vw, 2.5rem);
-      font-weight: 400;
-      color: var(--text);
-      letter-spacing: -0.02em;
-      line-height: 1.15;
-      margin-bottom: 0.75rem;
-    }
-
-    .creative-title em { color: var(--blue); }
-
-    .creative-desc {
-      font-size: 14px;
-      color: var(--text-2);
-      font-weight: 300;
-      line-height: 1.65;
-      max-width: 420px;
-    }
-
-    .creative-stats { display: flex; gap: 1.75rem; margin-top: 1.5rem; }
-
-    .creative-stat-num {
-      font-family: 'DM Serif Display', serif;
-      font-size: 1.5rem;
-      color: var(--blue);
-      font-weight: 400;
-      line-height: 1;
-      margin-bottom: 2px;
-    }
-
-    .creative-stat-label { font-size: 11px; color: var(--text-3); }
-
-    .creative-right {
-      position: relative;
-      z-index: 1;
-      flex-shrink: 0;
-      display: flex;
-      flex-direction: column;
-      align-items: flex-end;
-      gap: 1rem;
-    }
-
-    .creative-play {
-      width: 72px; height: 72px;
-      border-radius: 50%;
-      background: var(--blue-dim);
-      border: 1px solid rgba(59,107,255,0.25);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: background 0.2s, transform 0.2s;
-    }
-
-    .creative-banner:hover .creative-play {
-      background: rgba(59,107,255,0.18);
-      transform: scale(1.06);
-    }
-
-    .creative-play-tri {
-      width: 0; height: 0;
-      border-top: 11px solid transparent;
-      border-bottom: 11px solid transparent;
-      border-left: 19px solid var(--blue);
-      margin-left: 5px;
-    }
-
-    .creative-cta-text { font-size: 12px; color: var(--text-3); letter-spacing: 0.04em; }
-
-    /* FOOTER */
-    footer {
-      border-top: 1px solid var(--border);
-      padding: 1.75rem 2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      max-width: 900px;
-      margin: 0 auto;
-    }
-
-    .footer-l { font-size: 13px; color: var(--text-3); }
-    .footer-r { font-size: 13px; color: var(--text-3); display: flex; align-items: center; gap: 6px; }
-
-    /* ANIMATIONS */
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(16px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-
-    .hero-content > * { animation: fadeUp 0.55s ease both; }
-    .hero-socials       { animation-delay: 0s; }
-    .hero-photo-frame   { animation-delay: 0.07s; }
-    h1                  { animation-delay: 0.13s; }
-    .hero-role          { animation-delay: 0.18s; }
-    .hero-divider       { animation-delay: 0.22s; }
-    .hero-sub           { animation-delay: 0.27s; }
-    .hero-stack         { animation-delay: 0.32s; }
-    .hero-actions       { animation-delay: 0.38s; }
-
-    /* RESPONSIVE */
-    @media (max-width: 700px) {
-      nav { padding: 0 1.25rem; }
-      .hero { padding: 90px 1.25rem 3rem; }
-      .section { padding: 3.5rem 1.25rem; }
-      h1 { font-size: 2rem; }
-      .skills-grid { grid-template-columns: repeat(2, 1fr); }
-      .contact-grid { grid-template-columns: 1fr; }
-      footer { padding: 1.5rem 1.25rem; }
-      .creative-banner { flex-direction: column; align-items: flex-start; padding: 2rem 1.5rem; }
-      .creative-right { align-items: flex-start; flex-direction: row; }
-      .project-card { padding: 1.5rem 1.25rem; }
-    }
-
-    /* CV MODAL */
-    .cv-modal-overlay {
-      position: fixed;
-      inset: 0;
-      background: rgba(0,0,0,0.75);
-      backdrop-filter: blur(6px);
-      z-index: 1000;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 1.5rem;
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.25s;
-    }
-    .cv-modal-overlay.open {
-      opacity: 1;
-      pointer-events: all;
-    }
-    .cv-modal {
-      background: #fff;
-      color: #111;
-      width: 100%;
-      max-width: 680px;
-      max-height: 88vh;
-      border-radius: 16px;
-      overflow-y: auto;
-      padding: 3rem 3.5rem;
-      font-family: 'DM Sans', sans-serif;
-      transform: translateY(16px);
-      transition: transform 0.25s;
-      position: relative;
-    }
-    .cv-modal-overlay.open .cv-modal { transform: translateY(0); }
-
-    .cv-close {
-      position: absolute;
-      top: 1.25rem; right: 1.25rem;
-      width: 32px; height: 32px;
-      border-radius: 50%;
-      background: #f0f0f0;
-      border: none;
-      cursor: pointer;
-      font-size: 16px;
-      display: flex; align-items: center; justify-content: center;
-      color: #444;
-      transition: background 0.15s;
-    }
-    .cv-close:hover { background: #e0e0e0; }
-
-    .cv-name { font-size: 22px; font-weight: 700; color: #000; letter-spacing: -0.02em; margin-bottom: 4px; }
-    .cv-contact-line { font-size: 12px; color: #666; margin-bottom: 1.5rem; }
-    .cv-summary { font-size: 13px; line-height: 1.65; color: #444; margin-bottom: 1.75rem; padding-bottom: 1.5rem; border-bottom: 1.5px solid #111; }
-    .cv-section-title { font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #000; margin-bottom: 0.75rem; margin-top: 1.5rem; }
-    .cv-skills-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.5rem; margin-bottom: 1rem; }
-    .cv-skill-col-title { font-size: 12px; font-weight: 600; color: #000; }
-    .cv-skill-col-val { font-size: 12px; color: #555; }
-
-    .cv-highlight { display: flex; gap: 8px; margin-bottom: 0.6rem; align-items: flex-start; }
-    .cv-highlight-dot { width: 5px; height: 5px; border-radius: 50%; background: #000; flex-shrink: 0; margin-top: 5px; }
-    .cv-highlight-text { font-size: 12.5px; color: #333; line-height: 1.55; }
-    .cv-highlight-text strong { color: #000; font-weight: 600; }
-
-    .cv-edu-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
-    .cv-edu-level { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: #999; margin-bottom: 3px; }
-    .cv-edu-school { font-size: 13px; font-weight: 600; color: #000; margin-bottom: 2px; }
-    .cv-edu-detail { font-size: 11.5px; color: #555; line-height: 1.5; }
-    .cv-divider { border: none; border-top: 1px solid #e5e5e5; margin: 1.5rem 0; }
-  
-      /* SCROLL REVEAL */
-.reveal {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
-}
-.reveal.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-.reveal-delay-1 { transition-delay: 0.1s; }
-.reveal-delay-2 { transition-delay: 0.2s; }
-.reveal-delay-3 { transition-delay: 0.3s; }
-  
-
-
-
-  </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Kaixer Alvar — Computer Science student and developer based in the Philippines. Explore my development projects, or switch to my creative side for film and editing.">
+  <title>Kaixer Alvar — Developer & Video Editor</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="portfolio-theme.css">
+  <script src="portfolio-cv.js" defer></script>
+  <script src="portfolio-theme.js" defer></script>
 </head>
 <body>
-<script>
-  function openCv() {
-    document.getElementById('cvModal').classList.add('open');
-    document.body.style.overflow = 'hidden';
-  }
-  function closeCv() {
-    document.getElementById('cvModal').classList.remove('open');
-    document.body.style.overflow = '';
-  }
-  function downloadCv() {
-    var modal = document.querySelector('.cv-modal');
-    var printWindow = window.open('', '_blank');
-    var html = '<html><head><title>Kaixer Alvar CV</title>'
-      + '<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">'
-      + '<style>body{font-family:"DM Sans",sans-serif;padding:1rem 1.5rem;color:#111;max-width:680px;margin:0 auto;font-size:11px;}.cv-name{font-size:18px;font-weight:700;}.cv-contact-line{font-size:11px;color:#666;}.cv-summary{font-size:11px;line-height:1.55;color:#444;}.cv-section-title{font-size:9px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;}.cv-highlight{display:flex;gap:6px;margin-bottom:0.35rem;}.cv-highlight-dot{width:4px;height:4px;border-radius:50%;background:#000;flex-shrink:0;margin-top:5px;}.cv-highlight-text{font-size:11px;color:#333;line-height:1.45;}.cv-highlight-text strong{color:#000;font-weight:600;}.cv-edu-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0.75rem;}.cv-edu-level{font-size:9px;font-weight:700;text-transform:uppercase;color:#999;}.cv-edu-school{font-size:12px;font-weight:600;color:#000;}.cv-edu-detail{font-size:10.5px;color:#555;}.cv-divider{border:none;border-top:1px solid #e5e5e5;margin:0.75rem 0;}button{display:none!important;}@page{margin:0.5in;}</style></head>'
-      + '<body>' + modal.innerHTML + '</body></html>';
-    printWindow.document.write(html);
-    printWindow.document.close();
-    printWindow.focus();
-    setTimeout(function() { printWindow.print(); printWindow.close(); }, 500);
-  }
-</script>
-
-<!-- NAV -->
-<nav>
-  <span class="nav-logo">Kaixer<span>.</span></span>
-  <div class="nav-right">
-    <div class="nav-links">
-      <a href="#work">Work</a>
-      <a href="#skills">Skills</a>
-      <a href="#about">About</a>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="mobile-header">
+  <a href="#home" class="wordmark">Kaixer Alvar</a>
+  <button class="menu-toggle" aria-expanded="false" aria-controls="sidebar">Menu <span aria-hidden="true">☰</span></button>
+</header>
+<button class="menu-backdrop" tabindex="-1" aria-label="Close navigation" hidden></button>
+<aside class="sidebar" id="sidebar">
+  <a href="#home" class="wordmark" data-tip="Back to the beginning. A little about who I am.">Kaixer Alvar</a>
+  <div class="sidebar-side-switch" role="group" aria-label="Portfolio side">
+    <button type="button" data-side-switch="dev" aria-pressed="true">Dev</button>
+    <span aria-hidden="true">/</span>
+    <button type="button" data-side-switch="creative" aria-pressed="false">Creative</button>
+  </div>
+  <nav aria-label="Main navigation">
+    <div class="nav-group primary-nav">
+      <a href="#projects" data-side-only="dev" data-tip="The apps I’ve built, and the problems behind them."><span class="nav-symbol" aria-hidden="true">⌘</span>Projects</a>
+      <a href="#video" data-side-only="creative" data-tip="Watch heyIMKAI, my showreel, right here."><span class="nav-symbol" aria-hidden="true">▻</span>Showreel</a>
+      <a href="#services" data-side-only="creative" data-tip="Explore editing services and starting prices."><span class="nav-symbol" aria-hidden="true">↗</span>Services</a>
+      <a href="order.html" data-side-only="creative" data-tip="The dedicated project brief and booking form."><span class="nav-symbol" aria-hidden="true">▤</span>Start a project</a>
+    </div>
+    <div class="nav-group section-nav">
+      <a href="#about" data-side-only="dev">About</a>
+      <a href="#education" data-side-only="dev">Education</a>
+      <a href="#stack">Stack & tools</a>
+      <a href="#highlights" data-side-only="dev">Highlights</a>
       <a href="#contact">Contact</a>
+      <button type="button" onclick="openCv()" data-tip="My full resume, including education and research highlights.">Resume <span aria-hidden="true">↗</span></button>
     </div>
+  </nav>
+  <div class="sidebar-bottom">
+    <div class="sidebar-actions">
+      <button type="button" data-search-open>Find something <kbd>Ctrl K</kbd></button>
+      <button type="button" data-tour-start>Take the tour <span aria-hidden="true">↗</span></button>
+    </div>
+    <div class="availability"><i aria-hidden="true"></i>Open to opportunities</div>
+    <button class="theme-toggle" type="button" aria-label="Switch to light theme"><span data-theme-icon aria-hidden="true">☼</span><span data-theme-label>Light mode</span></button>
+    <p>For work, collabs & everything else,<br>reach me at</p>
+    <a class="sidebar-email" href="mailto:kaixermalvar@gmail.com">kaixermalvar@gmail.com ↗</a>
   </div>
-</nav>
-
-<!-- HERO -->
-<section class="hero">
-  <div class="hero-content">
-
-    <!-- Social icons -->
-    <div class="hero-socials">
-      <a href="https://www.linkedin.com/in/kaixer-emmanuel-oscar-antonio-alvar-b802773aa/" class="hero-social-link" target="_blank" rel="noopener" title="LinkedIn">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
-      </a>
-      <a href="https://github.com/alvarKaixer" class="hero-social-link" target="_blank" rel="noopener" title="GitHub">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
-      </a>
-      <a href="mailto:kaixermalvar@gmail.com" class="hero-social-link" title="Email">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-      </a>
+</aside>
+<main id="main" tabindex="-1">
+  <div class="content">
+    <div class="side-switch" role="group" aria-label="Choose a side of my portfolio">
+      <div><button type="button" data-side-switch="dev" aria-pressed="true"><span aria-hidden="true">⌘</span> Developer</button><button type="button" data-side-switch="creative" aria-pressed="false"><span aria-hidden="true">▷</span> Creative</button></div>
+      <span class="side-caption" id="sideCaption">Code, data & decisions</span>
     </div>
-
-    <!-- Avatar -->
-    <div class="hero-photo-frame">
-      <img src="assets/profile.jpg" alt="Kaixer Alvar" />
-    </div>
-
-    <!-- Name -->
-    <h1>Kaixer Alvar</h1>
-
-    <!-- Role -->
-    <div class="hero-role">Computer Science Student</div>
-
-    <!-- Divider -->
-    <div class="hero-divider"></div>
-
-    <!-- Tagline -->
-    <p class="hero-sub">
-      Actively learning and building — passionate about decision support systems, data-driven apps, and turning complex problems into clean solutions.
-    </p>
-
-    <!-- Tech stack pills -->
-    <div class="hero-stack">
-      <div class="hero-stack-pill">Python</div>
-      <div class="hero-stack-pill">C++</div>
-      <div class="hero-stack-pill">R</div>
-      <div class="hero-stack-pill">Dart</div>
-      <div class="hero-stack-pill">HTML/CSS</div>
-      <div class="hero-stack-pill">JS</div>
-    </div>
-
-    <!-- CTAs -->
-    <div class="hero-actions">
-      <button onclick="openCv()" class="btn-primary">
-        Resume
-      </button>
-      <a href="#work" class="btn-secondary">Check my work</a>
-    </div>
-
-  </div>
-</section>
-
-<!-- PROJECTS -->
-<section id="work">
-  <div class="work-inner">
-    <div class="work-header">
-      <div class="section-title">Selected Work</div>
-      <a href="https://github.com/alvarKaixer" class="section-link" target="_blank" rel="noopener">View all →</a>
-    </div>
-
-    <div class="projects">
-      <a href="https://github.com/alvarKaixer/BaliTrip-An-AHP-Based-Mobile-Recommender-System"
-         class="project-card" target="_blank" rel="noopener">
-        <div class="project-card-inner">
-          <div class="project-icon">
-            <img src="assets/balitrip.png" alt="BaliTrip" style="width:50px;height:50px;object-fit:contain;border-radius:6px;">
-          </div>
-          <div class="project-body">
-            <div class="project-name">BaliTrip</div>
-            <div class="project-desc">AHP-based mobile recommender system that helps travelers make smarter decisions about destinations using the Analytic Hierarchy Process.</div>
-            <div class="project-tags">
-              <span class="tag">Mobile App</span>
-              <span class="tag">AHP</span>
-              <span class="tag">Recommender System</span>
-              <span class="tag">Decision Science</span>
-            </div>
-          </div>
-          <div class="project-arrow"></div>
+    <section class="intro" id="home" aria-labelledby="intro-name" data-guide="home">
+      <div class="intro-grid">
+        <div class="portrait" data-tip="Hi, I’m Kaixer. Computer Science student, developer, and video editor.">
+          <img src="assets/profile3.JPG" alt="Kaixer Alvar" width="300" height="300" fetchpriority="high">
+          <span class="portrait-dots" aria-hidden="true"></span>
         </div>
-      </a>
-
-      <a href="https://github.com/alvarKaixer/KiloWatch-a-Decision-Support-System-for-Optimizing-Appliance-Level-Energy-Consumption"
-         class="project-card" target="_blank" rel="noopener">
-        <div class="project-card-inner">
-          <div class="project-icon">
-            <img src="assets/kilowatch.png" alt="KiloWatch" style="width:50px;height:50px;object-fit:contain;border-radius:6px;">
+        <div class="intro-copy">
+          <h1 id="intro-name">Kaixer Alvar</h1>
+          <p data-side-only="dev">I'm a Computer Science student and developer. I build data-driven apps, decision support systems, and practical solutions.</p>
+          <p data-side-only="dev">Currently deepening my fundamentals and turning complex problems into clean solutions. Explore what I’m building and learning below.</p>
+          <p data-side-only="creative">This is my creative side. I tell stories through film, motion, and editing — from the first cut to the finishing details.</p>
+          <p data-side-only="creative">I’ve been editing for 10 years, with 5 years of professional work. Watch my showreel and explore the craft behind it.</p>
+          <div class="social-links">
+            <a href="https://github.com/alvarKaixer" target="_blank" rel="noopener">github ↗</a>
+            <a href="https://www.linkedin.com/in/kaixer-emmanuel-oscar-antonio-alvar-b802773aa/" target="_blank" rel="noopener">linkedin ↗</a>
+            <a href="mailto:kaixermalvar@gmail.com">email ↗</a>
           </div>
-          <div class="project-body">
-            <div class="project-name">KiloWatch</div>
-            <div class="project-desc">Decision support system for optimizing appliance-level energy consumption. Helps households cut electricity costs with data-informed choices.</div>
-            <div class="project-tags">
-              <span class="tag">DSS</span>
-              <span class="tag">Energy Optimization</span>
-              <span class="tag">Data Analysis</span>
-              <span class="tag">Sustainability</span>
-            </div>
-          </div>
-          <div class="project-arrow"></div>
-        </div>
-      </a>
-    </div>
-  </div>
-</section>
-
-<!-- SKILLS -->
-<section class="section" id="skills">
-  <div class="section-top">
-    <div class="section-title">Skills & Learning</div>
-  </div>
-  <div class="skills-grid">
-    <div class="skill-card"><span class="skill-name">Python</span><span class="skill-badge badge-familiar">Familiar</span></div>
-    <div class="skill-card"><span class="skill-name">JavaScript</span><span class="skill-badge badge-learning">Learning</span></div>
-    <div class="skill-card"><span class="skill-name">HTML & CSS</span><span class="skill-badge badge-familiar">Familiar</span></div>
-    <div class="skill-card"><span class="skill-name">C++</span><span class="skill-badge badge-familiar">Familiar</span></div>
-    <div class="skill-card"><span class="skill-name">Dart</span><span class="skill-badge badge-learning">Learning</span></div>
-    <div class="skill-card"><span class="skill-name">R</span><span class="skill-badge badge-familiar">Familiar</span></div>
-  </div>
-</section>
-
-<!-- ABOUT -->
-<section class="section" id="about">
-  <div class="section-top">
-    <div class="section-title">About</div>
-  </div>
-  <div class="about-box">
-    <p class="about-text">
-      I'm <strong>Kaixer Emmanuel Oscar Antonio M. Alvar</strong>, a first-year Computer Science student based in the Philippines. I'm drawn to the intersection of data, decision-making, and real-world impact — two of my projects already tackle recommender systems and energy optimization. I'm currently deepening my fundamentals and looking for opportunities to build more.
-    </p>
-    <div class="about-meta">
-      <div class="meta-item">
-        <div class="meta-label">Location</div>
-        <div class="meta-val">Philippines</div>
-      </div>
-      <div class="meta-item">
-        <div class="meta-label">Status</div>
-        <div class="meta-val">1st Year CS</div>
-      </div>
-      <div class="meta-item">
-        <div class="meta-label">Focus</div>
-        <div class="meta-val">DSS · Data Analysis · Mobile Application Development</div>
-      </div>
-      <div class="meta-item">
-        <div class="meta-label">Availability</div>
-        <div class="meta-val">Open to opportunities</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- CONTACT -->
-<section class="section" id="contact">
-  <div class="section-top">
-    <div class="section-title">Get in Touch</div>
-  </div>
-  <div class="contact-grid">
-    <a href="https://github.com/alvarKaixer" class="contact-card" target="_blank" rel="noopener">
-      <div class="contact-icon-wrap">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#888" stroke-width="1.5">
-          <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
-        </svg>
-      </div>
-      <div class="contact-name">GitHub</div>
-      <div class="contact-sub">alvarKaixer</div>
-      <div class="contact-arrow"></div>
-    </a>
-    <a href="mailto:kaixermalvar@gmail.com" class="contact-card">
-      <div class="contact-icon-wrap">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#888" stroke-width="1.5">
-          <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-          <polyline points="22,6 12,13 2,6"/>
-        </svg>
-      </div>
-      <div class="contact-name">Email</div>
-      <div class="contact-sub">kaixermalvar@gmail.com</div>
-      <div class="contact-arrow"></div>
-    </a>
-    <a href="https://www.linkedin.com/in/kaixer-emmanuel-oscar-antonio-alvar-b802773aa/" class="contact-card" target="_blank" rel="noopener">
-      <div class="contact-icon-wrap">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#888" stroke-width="1.5">
-          <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
-          <rect x="2" y="9" width="4" height="12"/>
-          <circle cx="4" cy="4" r="2"/>
-        </svg>
-      </div>
-      <div class="contact-name">LinkedIn</div>
-      <div class="contact-sub">Kaixer Emmanuel Oscar Antonio Alvar</div>
-      <div class="contact-arrow"></div>
-    </a>
-  </div>
-</section>
-
-<!-- BEYOND THE CODE -->
-<section class="section">
-  <div class="section-top">
-    <div class="section-title">Beyond the Code</div>
-  </div>
-
-  <a href="video-portfolio.html" class="creative-banner">
-    <div class="creative-banner-glow"></div>
-    <div class="creative-banner-lines"></div>
-    <div class="creative-corner tl"></div>
-    <div class="creative-corner tr"></div>
-    <div class="creative-corner bl"></div>
-    <div class="creative-corner br"></div>
-
-    <div class="creative-left">
-      <div class="creative-tag">
-        <div class="creative-tag-dot"></div>
-        Video Editor
-      </div>
-      <div class="creative-title">
-        I bring stories to life<br>
-        through <em>film.</em>
-      </div>
-      <p class="creative-desc">
-        Freelance editor and post-production specialist working across short film, music video, commercial, and 3D animation.
-      </p>
-      <div class="creative-stats">
-        <div>
-          <div class="creative-stat-num">10</div>
-          <div class="creative-stat-label">Years editing</div>
-        </div>
-        <div>
-          <div class="creative-stat-num">5</div>
-          <div class="creative-stat-label">Years professional</div>
         </div>
       </div>
-    </div>
-
-    <div class="creative-right">
-      <div class="creative-play">
-        <div class="creative-play-tri"></div>
+      <div class="intro-facts">
+        <span><b data-side-only="dev">BS Computer Science</b><small data-side-only="dev">BATANGAS STATE UNIVERSITY</small><b data-side-only="creative">Video & post-production</b><small data-side-only="creative">FILM · MOTION · STORYTELLING</small></span>
+        <span><b>Philippines</b><small>BASED IN BATANGAS</small></span>
+        <span><b>Available</b><small>WORK & COLLABORATIONS</small></span>
       </div>
-      <div class="creative-cta-text">View reel </div>
-    </div>
-  </a>
-</section>
+      <div class="intro-stats" data-guide="stats" data-side-only="dev">
+        <a href="#projects"><strong>2 projects ↗</strong><small>BUILT WITH PURPOSE</small></a>
+        <a href="#education"><strong>1st year ↗</strong><small>COMPUTER SCIENCE</small></a>
+        <a href="#stack"><strong>Learning ↗</strong><small>LANGUAGES & TOOLS</small></a>
+      </div>
+      <div class="intro-stats" data-guide="stats" data-side-only="creative">
+        <a href="#video"><strong>10 yrs ↗</strong><small>EDITING EXPERIENCE</small></a>
+        <a href="#video"><strong>5 yrs ↗</strong><small>PROFESSIONAL WORK</small></a>
+        <a href="#video"><strong>Watch ↗</strong><small>HEYIMKAI / SHOWREEL</small></a>
+      </div>
+    </section>
 
-<!-- FOOTER -->
-<footer>
-  <span class="footer-l">Kaixer Alvar © 2026</span>
-  <span class="footer-r">
-    <span style="width:6px;height:6px;border-radius:50%;background:#4ade80;display:inline-block;"></span>
-    Open to opportunities
-  </span>
-</footer>
+    <section class="page-section" id="projects" aria-labelledby="projects-title" data-guide="projects" data-side-only="dev">
+      <div class="section-heading"><h2 id="projects-title">01 — projects</h2><a href="https://github.com/alvarKaixer" target="_blank" rel="noopener">GITHUB ↗</a></div>
+      <a class="project-row" href="https://github.com/alvarKaixer/BaliTrip-An-AHP-Based-Mobile-Recommender-System" target="_blank" rel="noopener" data-tip="BaliTrip uses the Analytic Hierarchy Process to help travelers compare destinations. Open the repository to explore it.">
+        <img src="assets/balitrip.png" width="52" height="52" alt="BaliTrip app icon" loading="lazy">
+        <div><h3>BaliTrip <span aria-hidden="true">↗</span></h3><p>AHP-based mobile recommender system that helps travelers make smarter decisions about destinations using the Analytic Hierarchy Process.</p><div class="project-tags">Mobile App · AHP · Recommender System · Decision Science</div></div>
+      </a>
+      <a class="project-row" href="https://github.com/alvarKaixer/KiloWatch-a-Decision-Support-System-for-Optimizing-Appliance-Level-Energy-Consumption" target="_blank" rel="noopener" data-tip="KiloWatch applies decision support to household energy use. Explore the code and research on GitHub.">
+        <img src="assets/kilowatch.png" width="52" height="52" alt="KiloWatch app icon" loading="lazy">
+        <div><h3>KiloWatch <span aria-hidden="true">↗</span></h3><p>Decision support system for optimizing appliance-level energy consumption. Helps households cut electricity costs with data-informed choices.</p><div class="project-tags">DSS · Energy Optimization · Data Analysis · Sustainability</div></div>
+      </a>
+    </section>
 
+    <section class="page-section" id="video" aria-labelledby="video-title" data-guide="video" data-side-only="creative">
+      <div class="section-heading"><h2 id="video-title">01 — showreel</h2><a href="assets/heyIMKAI.mp4" target="_blank" rel="noopener">OPEN VIDEO ↗</a></div>
+      <h3 class="feature-title">Every frame tells a story.</h3>
+      <p>Freelance editor and post-production specialist working across short film, music video, commercial, and 3D animation. Crafting narratives through motion, rhythm, and visual storytelling.</p>
+      <figure class="showreel-player" id="showreel">
+        <video id="showreelVideo" controls playsinline preload="none" aria-label="heyIMKAI — Kaixer Alvar showreel">
+          <source src="assets/heyIMKAI.mp4" type="video/mp4">
+          Your browser does not support this video. <a href="assets/heyIMKAI.mp4">Open the showreel</a>.
+        </video>
+        <button type="button" class="reel-start" id="playShowreel" aria-label="Play heyIMKAI showreel"><span aria-hidden="true">▷</span><b>heyIMKAI</b><small>Play showreel</small></button>
+        <figcaption><span>heyIMKAI</span><span>Showreel · Press play to watch</span></figcaption>
+      </figure>
+      <p class="video-error" id="videoError" role="status" hidden>The video couldn’t play here. <a href="assets/heyIMKAI.mp4" target="_blank" rel="noopener">Open the original video ↗</a></p>
+      <div class="genre-list"><span>Commercial</span><span>Cinematic</span><span>Social content</span><span>Music video</span><span>Documentary</span><span>3D animation</span></div>
+      <details class="story-details"><summary>How I got into editing <span aria-hidden="true">+</span></summary><p>I've been editing since I was around <strong>10 years old</strong>, just messing around with random gameplay footage and uploading videos on YouTube. It was more of a hobby back then, just trying things out and having fun. During the pandemic, I came across AMVs (anime music videos), and that's when I really got into editing seriously. I started learning more about motion graphics, 3D animation, and eventually got comfortable with the software I still use today. After that, I began taking on commissions, from classmates at first, then eventually international clients. I kept doing it consistently over the years, improving with every project. Now, I'm at a point where I'm doing way more than I ever thought I could when I first started.
+    </p><blockquote>“When given an opportunity, deliver excellence and never quit.”<cite>— Robert Rodriguez</cite></blockquote></details>
+    </section>
+
+
+
+    <section class="page-section" id="about" aria-labelledby="about-title" data-guide="about" data-side-only="dev">
+      <div class="section-heading"><h2 id="about-title">04 — about</h2><button type="button" onclick="openCv()">FULL RESUME ↗</button></div>
+      <p>I'm <strong>Kaixer Emmanuel Oscar Antonio M. Alvar</strong>, a first-year Computer Science student based in the Philippines. I'm drawn to the intersection of data, decision-making, and real-world impact — two of my projects already tackle recommender systems and energy optimization. I'm currently deepening my fundamentals and looking for opportunities to build more.</p>
+      <p>Actively learning and building — passionate about decision support systems, data-driven apps, and turning complex problems into clean solutions.</p>
+      <dl class="about-facts"><div><dt>Location</dt><dd>Philippines</dd></div><div><dt>Status</dt><dd>1st Year CS</dd></div><div><dt>Focus</dt><dd>DSS · Data Analysis · Mobile Application Development</dd></div><div><dt>Availability</dt><dd>Open to opportunities</dd></div></dl>
+    </section>
+    <section class="page-section" id="education" aria-labelledby="education-title" data-guide="education" data-side-only="dev">
+      <div class="section-heading"><h2 id="education-title">05 — education</h2></div>
+      <div class="education-list">
+      <div class="cv-edu-item">
+        <div class="cv-edu-level">Tertiary</div>
+        <div class="cv-edu-school">Batangas State University – TNEU</div>
+        <div class="cv-edu-detail">BS Computer Science<br>Alangilan, Batangas City<br>2025 – Present</div>
+      </div>
+      <div class="cv-edu-item">
+        <div class="cv-edu-level">Secondary</div>
+        <div class="cv-edu-school">St. Rita's College of Balingasag</div>
+        <div class="cv-edu-detail">STEM<br>Balingasag, Misamis Oriental<br>2019 – 2025</div>
+      </div>
+      <div class="cv-edu-item">
+        <div class="cv-edu-level">Primary</div>
+        <div class="cv-edu-school">Gardner School of Multiple Intelligences</div>
+        <div class="cv-edu-detail">San Pascual, Batangas<br>2018 – 2019</div>
+        <div class="cv-edu-school" style="margin-top:0.5rem">Springdale Primary School</div>
+        <div class="cv-edu-detail">71 Anchorvale Link, Singapore<br>2013 – 2018</div>
+      </div></div>
+    </section>
+    <section class="page-section" id="stack" aria-labelledby="stack-title" data-guide="stack">
+      <div class="section-heading"><h2 id="stack-title">06 — stack & tools</h2></div>
+      <h3 class="subheading" data-side-only="dev">Development</h3><div class="stack-grid" data-side-only="dev"><div class="stack-item"><span>Python</span><small>Familiar</small></div>
+<div class="stack-item"><span>JavaScript</span><small>Learning</small></div>
+<div class="stack-item"><span>HTML & CSS</span><small>Familiar</small></div>
+<div class="stack-item"><span>C++</span><small>Familiar</small></div>
+<div class="stack-item"><span>Dart</span><small>Learning</small></div>
+<div class="stack-item"><span>R</span><small>Familiar</small></div></div>
+      <h3 class="subheading" data-side-only="creative">Editing & design</h3>
+      <div class="tools-list" data-side-only="creative"><span>Adobe Premiere Pro</span><span>Adobe Photoshop</span><span>After Effects</span><span>Adobe Audition</span><span>Adobe Lightroom</span></div>
+    </section>
+    <section class="page-section" id="services" aria-labelledby="services-title" data-guide="services" data-side-only="creative">
+      <div class="section-heading"><h2 id="services-title">03 — services</h2><a href="order.html">START A PROJECT ↗</a></div>
+      <div class="service-list"><details class="service-row"><summary>Video Editing<span aria-hidden="true">+</span></summary><p>Narrative-driven cuts that serve the story, from rough assembly to picture lock with meticulous attention to rhythm and pacing.</p></details>
+<details class="service-row"><summary>Color Grading<span aria-hidden="true">+</span></summary><p>Building a consistent visual language with intentional color work that elevates mood and draws viewers deeper into the story.</p></details>
+<details class="service-row"><summary>Sound Design<span aria-hidden="true">+</span></summary><p>Audio mixing, SFX layering, and music sync to create immersive soundscapes that support the edit's emotional arc.</p></details>
+<details class="service-row"><summary>Motion Graphics<span aria-hidden="true">+</span></summary><p>Clean, purposeful motion, from lower thirds to full title sequences, designed to complement, not overshadow.</p></details>
+<details class="service-row"><summary>Social Content<span aria-hidden="true">+</span></summary><p>Fast-turnaround short-form content optimized for Reels, TikTok, and YouTube Shorts. Hook-first editing that retains attention.</p></details>
+<details class="service-row"><summary>Post-Production<span aria-hidden="true">+</span></summary><p>Full post-production pipeline from raw footage to export-ready deliverables across multiple formats and platforms.</p></details></div>
+      <h3 class="subheading">Editing packages</h3>
+      <div class="package-list">
+        <a href="order.html" class="package-row" data-tip="Basic Edit starts at $15 per video. Choose a package and share your brief on the booking page."><div><h4>Basic Edit</h4><p>Up to 5 min · Basic color correction · Music sync<br>1 revision · 3–5 day turnaround</p></div><span>$15 <small>/ video ↗</small></span></a>
+        <a href="order.html" class="package-row" data-tip="Standard starts at $35, including color grading, sound design, and motion graphics."><div><h4>Standard</h4><p>Up to 15 min · Color grading · Sound design & mix · Motion graphics<br>2 revisions · 5–7 day turnaround</p></div><span>$35 <small>/ video ↗</small></span></a>
+        <a href="order.html" class="package-row" data-tip="Premium starts at $75 for a full post-production workflow. Final pricing is confirmed before work begins."><div><h4>Premium</h4><p>Unlimited output length · Advanced grading · Full sound design<br>Complex motion graphics · Basic VFX · 3 revisions · 7–14 days</p></div><span>$75 <small>/ video ↗</small></span></a>
+      </div>
+      <p class="fine-print">Base prices only. The final quote depends on project complexity, footage volume, and urgency. No payment now — I’ll confirm the details and price before starting.</p>
+    </section>
+    <section class="page-section" id="highlights" aria-labelledby="highlights-title" data-guide="highlights" data-side-only="dev">
+      <div class="section-heading"><h2 id="highlights-title">07 — highlights</h2></div>
+      <ul class="highlights-list"><li><strong>National Science and Engineering Fair 2025</strong> – Finalist & Overall 5th Grand Awardee (AXIAA Hotel, Quezon City) – developed and presented BaliTrip, a travel decision-support application utilizing the Analytical Hierarchy Process (AHP).</li>
+<li><strong>Best Research – PANUKIDUKI 2024 & Plaque of Research Excellence</strong> – recognized for producing a high-quality study involving statistical analysis, critical thinking, and structured research design.</li>
+<li>Completed seminars on <strong>Mathematical Epidemiology (USBaW)</strong> and <strong>Statistical Inference & Hypothesis Testing</strong> – strengthened skills in data interpretation, modeling, and analytical reasoning.</li>
+<li><strong>Served as a Workshop Facilitator</strong> – led academic sessions demonstrating ability to explain complex concepts clearly and collaborate in team environments.</li>
+<li><strong>Awarded Best in Communication Skills (PASUNDAYAG 2024)</strong> – recognized for excellence in formal public speaking.</li>
+<li><strong>Awarded Best Editor (PASUNDAYAG 2024)</strong> – demonstrated strong video editing skills, attention to detail, and multimedia production ability.</li>
+<li><strong>Graduated With Honors (S.Y. 2022–2025)</strong> – consistent academic performance with a focus on analytical and problem-solving disciplines.</li></ul>
+    </section>
+    <section class="page-section" id="contact" aria-labelledby="contact-title" data-guide="contact">
+      <div class="section-heading"><h2 id="contact-title">08 — say hello</h2></div>
+      <p>For work, collabs, or a project you have in mind — drop me a line.</p>
+      <div class="email-row"><a href="mailto:kaixermalvar@gmail.com">kaixermalvar@gmail.com</a><button type="button" data-copy-email>Copy</button></div>
+      <div class="social-links"><a href="https://github.com/alvarKaixer" target="_blank" rel="noopener">github ↗</a><a href="https://www.linkedin.com/in/kaixer-emmanuel-oscar-antonio-alvar-b802773aa/" target="_blank" rel="noopener">linkedin ↗</a><a href="order.html" data-side-only="creative">project brief ↗</a></div>
+    </section>
+    <footer><span>Kaixer Alvar © 2026</span><button type="button" data-tour-start>take the tour again ↗</button></footer>
+  </div>
+</main>
 <!-- CV MODAL -->
-<div class="cv-modal-overlay" id="cvModal" onclick="if(event.target===this)closeCv()">
+<dialog class="cv-modal-overlay" id="cvModal" aria-labelledby="cvName" inert onclick="if(event.target===this)closeCv()">
   <div class="cv-modal">
-    <button class="cv-close" onclick="closeCv()">✕</button>
-    <button onclick="downloadCv()" style="position:absolute;top:1.25rem;right:3.5rem;width:32px;height:32px;border-radius:50%;background:#f0f0f0;border:none;cursor:pointer;font-size:14px;display:flex;align-items:center;justify-content:center;color:#444;transition:background 0.15s;" onmouseover="this.style.background='#e0e0e0'" onmouseout="this.style.background='#f0f0f0'">↓</button>
+    <button class="cv-close" aria-label="Close resume" onclick="closeCv()">✕</button>
+    <button onclick="downloadCv()" aria-label="Print or save resume as PDF" style="position:absolute;top:1.25rem;right:3.5rem;width:32px;height:32px;border-radius:50%;background:#f0f0f0;border:none;cursor:pointer;font-size:14px;display:flex;align-items:center;justify-content:center;color:#444;transition:background 0.15s;" onmouseover="this.style.background='#e0e0e0'" onmouseout="this.style.background='#f0f0f0'">↓</button>
 
-    <div class="cv-name">KAIXER EMMANUEL OSCAR ANTONIO M. ALVAR</div>
+    <div class="cv-name" id="cvName">KAIXER EMMANUEL OSCAR ANTONIO M. ALVAR</div>
     <div class="cv-contact-line">Batangas City, Batangas, Philippines &nbsp;|&nbsp; kaixermalvar@gmail.com &nbsp;|&nbsp; (+63) 966-063-8393</div>
 
     <p class="cv-summary">
@@ -1166,16 +255,14 @@
       </div>
     </div>
   </div>
-</div>
+</dialog>
 
-<script>
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(el => {
-    if (el.isIntersecting) el.target.classList.add('visible');
-  });
-}, { threshold: 0.1 });
 
-document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-</script>
+<dialog id="searchDialog" aria-labelledby="search-title"><div class="dialog-top"><h2 id="search-title">Find something</h2><button type="button" data-search-close aria-label="Close search">×</button></div><label class="sr-only" for="searchInput">Search projects, pages, and sections</label><input type="search" id="searchInput" placeholder="Projects, video, resume…" autocomplete="off"><div id="searchResults" aria-label="Search results"></div><p class="search-hint">Search this portfolio. Esc to close.</p></dialog>
+<svg id="guideConnector" class="guide-connector" aria-hidden="true" hidden><defs><marker id="guideArrowHead" markerWidth="8" markerHeight="8" refX="5" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6" fill="none" stroke="currentColor" stroke-width="1.2"/></marker></defs><path id="guideLine" fill="none" stroke="currentColor" stroke-width="1" marker-end="url(#guideArrowHead)"/></svg>
+<aside class="guide" id="guide" aria-label="Portfolio guide" hidden>
+  <div class="guide-bubble"><div class="guide-top"><span>Kaixer / your guide</span><button type="button" data-guide-close aria-label="Dismiss guide">×</button></div><div id="guideSubject" class="guide-subject"></div><p id="guideText"></p><div class="guide-controls"><span id="guideCount"></span><button type="button" data-guide-next>Next →</button></div></div>
+</aside>
+<div class="sr-only" id="announcement" role="status" aria-live="polite"></div>
 </body>
 </html>
