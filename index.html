@@ -1,18 +1,22 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark" data-side="dev">
+<html lang="en" data-theme="light" data-side="dev">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Kaixer Alvar — Computer Science student and developer based in the Philippines. Explore my development projects, or switch to my creative side for film and editing.">
   <title>Kaixer Alvar — Developer & Video Editor</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="portfolio-theme.css">
   <script src="portfolio-cv.js" defer></script>
   <script src="portfolio-theme.js" defer></script>
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
+<div class="desktop-glow" aria-hidden="true"></div>
+<div class="window-bar">
+  <span class="traffic-lights" aria-hidden="true"><i></i><i></i><i></i></span>
+  <span class="window-title">Kaixer’s workspace <span>/ Portfolio</span></span>
+  <a class="window-contact" href="#contact">Let’s connect <span aria-hidden="true">↗</span></a>
+</div>
 <header class="mobile-header">
   <a href="#home" class="wordmark">Kaixer Alvar</a>
   <button class="menu-toggle" aria-expanded="false" aria-controls="sidebar">Menu <span aria-hidden="true">☰</span></button>
@@ -20,11 +24,6 @@
 <button class="menu-backdrop" tabindex="-1" aria-label="Close navigation" hidden></button>
 <aside class="sidebar" id="sidebar">
   <a href="#home" class="wordmark" data-tip="Back to the beginning. A little about who I am.">Kaixer Alvar</a>
-  <div class="sidebar-side-switch" role="group" aria-label="Portfolio side">
-    <button type="button" data-side-switch="dev" aria-pressed="true">Dev</button>
-    <span aria-hidden="true">/</span>
-    <button type="button" data-side-switch="creative" aria-pressed="false">Creative</button>
-  </div>
   <nav aria-label="Main navigation">
     <div class="nav-group primary-nav">
       <a href="#projects" data-side-only="dev" data-tip="The apps I’ve built, and the problems behind them."><span class="nav-symbol" aria-hidden="true">⌘</span>Projects</a>
@@ -44,12 +43,11 @@
   <div class="sidebar-bottom">
     <div class="sidebar-actions">
       <button type="button" data-search-open>Find something <kbd>Ctrl K</kbd></button>
-      <button type="button" data-tour-start>Take the tour <span aria-hidden="true">↗</span></button>
+      <button type="button" data-tour-start>Replay tour <span aria-hidden="true">↗</span></button>
     </div>
-    <div class="availability"><i aria-hidden="true"></i>Open to opportunities</div>
     <button class="theme-toggle" type="button" aria-label="Switch to light theme"><span data-theme-icon aria-hidden="true">☼</span><span data-theme-label>Light mode</span></button>
     <p>For work, collabs & everything else,<br>reach me at</p>
-    <a class="sidebar-email" href="mailto:kaixermalvar@gmail.com">kaixermalvar@gmail.com ↗</a>
+    <a class="sidebar-email" href="mailto:businesskaixer@gmail.com">businesskaixer@gmail.com ↗</a>
   </div>
 </aside>
 <main id="main" tabindex="-1">
@@ -61,11 +59,12 @@
     <section class="intro" id="home" aria-labelledby="intro-name" data-guide="home">
       <div class="intro-grid">
         <div class="portrait" data-tip="Hi, I’m Kaixer. Computer Science student, developer, and video editor.">
-          <img src="assets/profile3.JPG" alt="Kaixer Alvar" width="300" height="300" fetchpriority="high">
-          <span class="portrait-dots" aria-hidden="true"></span>
+          <span class="portrait-fluid" aria-hidden="true"><i></i><i></i><i></i></span>
+          <img src="assets/profile4.png" alt="Kaixer Alvar smiling and making a peace sign" width="1000" height="1000" fetchpriority="high">
         </div>
         <div class="intro-copy">
-          <h1 id="intro-name">Kaixer Alvar</h1>
+          <span class="intro-eyebrow">A CURIOUS MIND. ALWAYS CREATING.</span>
+          <h1 id="intro-name">Hi, I’m<br><span>Kaixer Alvar.</span></h1>
           <p data-side-only="dev">I'm a Computer Science student and developer. I build data-driven apps, decision support systems, and practical solutions.</p>
           <p data-side-only="dev">Currently deepening my fundamentals and turning complex problems into clean solutions. Explore what I’m building and learning below.</p>
           <p data-side-only="creative">This is my creative side. I tell stories through film, motion, and editing — from the first cut to the finishing details.</p>
@@ -73,14 +72,13 @@
           <div class="social-links">
             <a href="https://github.com/alvarKaixer" target="_blank" rel="noopener">github ↗</a>
             <a href="https://www.linkedin.com/in/kaixer-emmanuel-oscar-antonio-alvar-b802773aa/" target="_blank" rel="noopener">linkedin ↗</a>
-            <a href="mailto:kaixermalvar@gmail.com">email ↗</a>
+            <a href="mailto:businesskaixer@gmail.com">email ↗</a>
           </div>
         </div>
       </div>
       <div class="intro-facts">
         <span><b data-side-only="dev">BS Computer Science</b><small data-side-only="dev">BATANGAS STATE UNIVERSITY</small><b data-side-only="creative">Video & post-production</b><small data-side-only="creative">FILM · MOTION · STORYTELLING</small></span>
         <span><b>Philippines</b><small>BASED IN BATANGAS</small></span>
-        <span><b>Available</b><small>WORK & COLLABORATIONS</small></span>
       </div>
       <div class="intro-stats" data-guide="stats" data-side-only="dev">
         <a href="#projects"><strong>2 projects ↗</strong><small>BUILT WITH PURPOSE</small></a>
@@ -96,14 +94,37 @@
 
     <section class="page-section" id="projects" aria-labelledby="projects-title" data-guide="projects" data-side-only="dev">
       <div class="section-heading"><h2 id="projects-title">01 — projects</h2><a href="https://github.com/alvarKaixer" target="_blank" rel="noopener">GITHUB ↗</a></div>
+      <div class="projects-intro"><h3>Small ideas.<br><span>Real-world purpose.</span></h3><p>Exploring better decisions <br>through code and data.</p></div>
+      <div class="project-grid">
       <a class="project-row" href="https://github.com/alvarKaixer/BaliTrip-An-AHP-Based-Mobile-Recommender-System" target="_blank" rel="noopener" data-tip="BaliTrip uses the Analytic Hierarchy Process to help travelers compare destinations. Open the repository to explore it.">
-        <img src="assets/balitrip.png" width="52" height="52" alt="BaliTrip app icon" loading="lazy">
-        <div><h3>BaliTrip <span aria-hidden="true">↗</span></h3><p>AHP-based mobile recommender system that helps travelers make smarter decisions about destinations using the Analytic Hierarchy Process.</p><div class="project-tags">Mobile App · AHP · Recommender System · Decision Science</div></div>
+        <div class="project-stage travel-stage" aria-hidden="true">
+          <span class="stage-label">01 / EXPLORE WITH INTENTION</span>
+          <div class="device-float"><div class="phone-model"><div class="phone-screen">
+            <span class="phone-island"></span><div class="phone-status"><span>9:41</span><span>••• ▰</span></div>
+            <div class="phone-app"><img src="assets/balitrip.png" width="32" height="32" alt="" loading="lazy"><b>BaliTrip</b></div>
+            <strong class="phone-headline">Your next<br>great escape.</strong><span class="phone-subtitle">Find a place that feels like you.</span>
+            <div class="travel-landscape"><span class="landscape-sun"></span><span class="landscape-hill"></span><span class="landscape-hill second"></span><span class="landscape-caption">A world to discover ↗</span></div>
+            <div class="phone-chips"><span>Discover</span><span>Compare</span></div><div class="phone-line"></div><div class="phone-line short"></div><span class="phone-home"></span>
+          </div></div></div>
+          <span class="stage-caption">Interface concept</span><span class="stage-arrow">↗</span>
+        </div>
+        <div class="project-info"><div class="project-identity"><img src="assets/balitrip.png" width="40" height="40" alt="BaliTrip app icon" loading="lazy"><h3>BaliTrip <span aria-hidden="true">↗</span></h3></div><p>AHP-based mobile recommender system that helps travelers make smarter decisions about destinations using the Analytic Hierarchy Process.</p><div class="project-tags">Mobile App · AHP · Decision Science</div></div>
       </a>
       <a class="project-row" href="https://github.com/alvarKaixer/KiloWatch-a-Decision-Support-System-for-Optimizing-Appliance-Level-Energy-Consumption" target="_blank" rel="noopener" data-tip="KiloWatch applies decision support to household energy use. Explore the code and research on GitHub.">
-        <img src="assets/kilowatch.png" width="52" height="52" alt="KiloWatch app icon" loading="lazy">
-        <div><h3>KiloWatch <span aria-hidden="true">↗</span></h3><p>Decision support system for optimizing appliance-level energy consumption. Helps households cut electricity costs with data-informed choices.</p><div class="project-tags">DSS · Energy Optimization · Data Analysis · Sustainability</div></div>
+        <div class="project-stage energy-stage" aria-hidden="true">
+          <span class="stage-label">02 / A LITTLE MORE MINDFUL</span>
+          <div class="device-float"><div class="phone-model"><div class="phone-screen">
+            <span class="phone-island"></span><div class="phone-status"><span>9:41</span><span>••• ▰</span></div>
+            <div class="phone-app"><img src="assets/kilowatch.png" width="32" height="32" alt="" loading="lazy"><b>KiloWatch</b></div>
+            <strong class="phone-headline">Small changes.<br>Smarter energy.</strong><span class="phone-subtitle">A clearer view of your home.</span>
+            <div class="energy-ring"><div><span>ϟ</span><b>Energy</b><small>at a glance</small></div></div>
+            <div class="energy-bars"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><div class="phone-line"></div><span class="phone-home"></span>
+          </div></div></div>
+          <span class="stage-caption">Interface concept</span><span class="stage-arrow">↗</span>
+        </div>
+        <div class="project-info"><div class="project-identity"><img src="assets/kilowatch.png" width="40" height="40" alt="KiloWatch app icon" loading="lazy"><h3>KiloWatch <span aria-hidden="true">↗</span></h3></div><p>Decision support system for optimizing appliance-level energy consumption. Helps households cut electricity costs with data-informed choices.</p><div class="project-tags">DSS · Data Analysis · Sustainability</div></div>
       </a>
+      </div>
     </section>
 
     <section class="page-section" id="video" aria-labelledby="video-title" data-guide="video" data-side-only="creative">
@@ -130,7 +151,7 @@
       <div class="section-heading"><h2 id="about-title">04 — about</h2><button type="button" onclick="openCv()">FULL RESUME ↗</button></div>
       <p>I'm <strong>Kaixer Emmanuel Oscar Antonio M. Alvar</strong>, a first-year Computer Science student based in the Philippines. I'm drawn to the intersection of data, decision-making, and real-world impact — two of my projects already tackle recommender systems and energy optimization. I'm currently deepening my fundamentals and looking for opportunities to build more.</p>
       <p>Actively learning and building — passionate about decision support systems, data-driven apps, and turning complex problems into clean solutions.</p>
-      <dl class="about-facts"><div><dt>Location</dt><dd>Philippines</dd></div><div><dt>Status</dt><dd>1st Year CS</dd></div><div><dt>Focus</dt><dd>DSS · Data Analysis · Mobile Application Development</dd></div><div><dt>Availability</dt><dd>Open to opportunities</dd></div></dl>
+      <dl class="about-facts"><div><dt>Location</dt><dd>Philippines</dd></div><div><dt>Status</dt><dd>1st Year CS</dd></div><div><dt>Focus</dt><dd>DSS · Data Analysis · Mobile Application Development</dd></div></dl>
     </section>
     <section class="page-section" id="education" aria-labelledby="education-title" data-guide="education" data-side-only="dev">
       <div class="section-heading"><h2 id="education-title">05 — education</h2></div>
@@ -193,10 +214,10 @@
     <section class="page-section" id="contact" aria-labelledby="contact-title" data-guide="contact">
       <div class="section-heading"><h2 id="contact-title">08 — say hello</h2></div>
       <p>For work, collabs, or a project you have in mind — drop me a line.</p>
-      <div class="email-row"><a href="mailto:kaixermalvar@gmail.com">kaixermalvar@gmail.com</a><button type="button" data-copy-email>Copy</button></div>
+      <div class="email-row"><a href="mailto:businesskaixer@gmail.com">businesskaixer@gmail.com</a><button type="button" data-copy-email>Copy</button></div>
       <div class="social-links"><a href="https://github.com/alvarKaixer" target="_blank" rel="noopener">github ↗</a><a href="https://www.linkedin.com/in/kaixer-emmanuel-oscar-antonio-alvar-b802773aa/" target="_blank" rel="noopener">linkedin ↗</a><a href="order.html" data-side-only="creative">project brief ↗</a></div>
     </section>
-    <footer><span>Kaixer Alvar © 2026</span><button type="button" data-tour-start>take the tour again ↗</button></footer>
+    <footer><span>Kaixer Alvar © 2026</span><a href="#home">Back to top ↑</a></footer>
   </div>
 </main>
 <!-- CV MODAL -->
@@ -206,7 +227,7 @@
     <button onclick="downloadCv()" aria-label="Print or save resume as PDF" style="position:absolute;top:1.25rem;right:3.5rem;width:32px;height:32px;border-radius:50%;background:#f0f0f0;border:none;cursor:pointer;font-size:14px;display:flex;align-items:center;justify-content:center;color:#444;transition:background 0.15s;" onmouseover="this.style.background='#e0e0e0'" onmouseout="this.style.background='#f0f0f0'">↓</button>
 
     <div class="cv-name" id="cvName">KAIXER EMMANUEL OSCAR ANTONIO M. ALVAR</div>
-    <div class="cv-contact-line">Batangas City, Batangas, Philippines &nbsp;|&nbsp; kaixermalvar@gmail.com &nbsp;|&nbsp; (+63) 966-063-8393</div>
+    <div class="cv-contact-line">Batangas City, Batangas, Philippines &nbsp;|&nbsp; businesskaixer@gmail.com &nbsp;|&nbsp; (+63) 966-063-8393</div>
 
     <p class="cv-summary">
       Computer Science student at Batangas State University with a solid foundation in software development, data analysis, and web and mobile application development. Experienced in research-driven and academic projects, with a strong focus on problem-solving and building efficient, practical solutions. Recognized for excellence in research, proactive, detail-oriented, and eager to contribute to real-world development projects while continuously improving technical skills.
@@ -259,9 +280,18 @@
 
 
 <dialog id="searchDialog" aria-labelledby="search-title"><div class="dialog-top"><h2 id="search-title">Find something</h2><button type="button" data-search-close aria-label="Close search">×</button></div><label class="sr-only" for="searchInput">Search projects, pages, and sections</label><input type="search" id="searchInput" placeholder="Projects, video, resume…" autocomplete="off"><div id="searchResults" aria-label="Search results"></div><p class="search-hint">Search this portfolio. Esc to close.</p></dialog>
-<svg id="guideConnector" class="guide-connector" aria-hidden="true" hidden><defs><marker id="guideArrowHead" markerWidth="8" markerHeight="8" refX="5" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6" fill="none" stroke="currentColor" stroke-width="1.2"/></marker></defs><path id="guideLine" fill="none" stroke="currentColor" stroke-width="1" marker-end="url(#guideArrowHead)"/></svg>
-<aside class="guide" id="guide" aria-label="Portfolio guide" hidden>
-  <div class="guide-bubble"><div class="guide-top"><span>Kaixer / your guide</span><button type="button" data-guide-close aria-label="Dismiss guide">×</button></div><div id="guideSubject" class="guide-subject"></div><p id="guideText"></p><div class="guide-controls"><span id="guideCount"></span><button type="button" data-guide-next>Next →</button></div></div>
+<dialog class="welcome" id="welcome" aria-labelledby="welcomeTitle">
+  <div class="welcome-copy"><span>WELCOME TO MY WORKSPACE</span><h2 id="welcomeTitle">Kaixer Alvar<span class="selection-handle" aria-hidden="true"></span></h2><p>Code, creativity, and a curious mind.</p></div>
+  <div class="welcome-cursor figma-cursor" aria-hidden="true"><svg viewBox="0 0 28 32"><path d="M3 2 24 18 14 20 10 30Z"/></svg><span>Kaixer</span></div>
+  <button class="welcome-skip" type="button">Skip intro <span aria-hidden="true">↗</span></button>
+</dialog>
+<div class="guide-cursor figma-cursor" id="guideCursor" aria-hidden="true" hidden><svg viewBox="0 0 28 32"><path d="M3 2 24 18 14 20 10 30Z"/></svg><span>Kaixer</span></div>
+<aside class="guide-card" id="guide" aria-label="Portfolio tour" hidden>
+  <div class="guide-pad">
+  <div class="guide-progress" aria-hidden="true"><i></i></div>
+  <div class="guide-message"><div class="guide-heading"><span class="guide-author">Kaixer <span>/ your guide</span></span><span id="guideCount"></span></div><h2 id="guideSubject"></h2><p id="guideText"></p></div>
+  <div class="guide-actions"><button type="button" data-guide-close>Skip</button><div><button type="button" data-guide-back aria-label="Previous tour step">←</button><button type="button" data-guide-pause aria-label="Pause tour">Pause</button><button type="button" data-guide-next>Next →</button></div></div>
+  </div>
 </aside>
 <div class="sr-only" id="announcement" role="status" aria-live="polite"></div>
 </body>
